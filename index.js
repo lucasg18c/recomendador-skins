@@ -25,11 +25,16 @@ elegir = () => {
     }
 }
 
-app.get("/", (req, res) => {
+app.get("/", (_, res) => {
     elegir()
     res.render("pages/index", {
         elegida: elegida
     })
+})
+
+app.get("/cambio", (_, res) => {
+    elegida = "";
+    res.redirect("/");
 })
 
 
